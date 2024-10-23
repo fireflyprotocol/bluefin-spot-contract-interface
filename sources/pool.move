@@ -247,6 +247,29 @@ module bluefin_spot::pool {
 
     } 
 
+    /// Collect the accrued fee in position
+    public fun collect_fee<CoinTypeA, CoinTypeB>(
+        clock: &Clock,
+        protocol_config: &GlobalConfig,
+        pool: &mut Pool<CoinTypeA, CoinTypeB>, 
+        position: &mut Position,
+    ):( u64, u64, Balance<CoinTypeA>, Balance<CoinTypeB>){
+        
+        abort 0
+
+    }
+
+    public fun collect_reward<CoinTypeA, CoinTypeB, RewardCoinType>(
+        clock: &Clock,
+        protocol_config: &GlobalConfig,
+        pool: &mut Pool<CoinTypeA, CoinTypeB>, 
+        position: &mut Position,
+    ) : Balance<RewardCoinType> {
+
+        abort 0
+
+    }
+
     /// Returns the amount to be paid for the flash swap
     public fun swap_pay_amount<CoinTypeA, CoinTypeB>(receipt: &FlashSwapReceipt<CoinTypeA, CoinTypeB>) : u64 {
         receipt.pay_amount
@@ -285,30 +308,7 @@ module bluefin_spot::pool {
 
         abort 0
 
-    }
-
-    /// Collect the accrued fee in position
-    public fun collect_fee<CoinTypeA, CoinTypeB>(
-        clock: &Clock,
-        protocol_config: &GlobalConfig,
-        pool: &mut Pool<CoinTypeA, CoinTypeB>, 
-        position: &mut Position,
-    ):( u64, u64, Balance<CoinTypeA>, Balance<CoinTypeB>){
-        
-        abort 0
-
-    }
-
-    public fun collect_reward<CoinTypeA, CoinTypeB, RewardCoinType>(
-        clock: &Clock,
-        protocol_config: &GlobalConfig,
-        pool: &mut Pool<CoinTypeA, CoinTypeB>, 
-        position: &mut Position,
-    ) : Balance<RewardCoinType> {
-
-        abort 0
-
-    }
+    }    
 
     public fun liquidity<CoinTypeA, CoinTypeB>(
         pool: &Pool<CoinTypeA, CoinTypeB>

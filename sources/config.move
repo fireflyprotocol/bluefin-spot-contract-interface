@@ -1,7 +1,9 @@
 // Copyright (c) Seed Labs
 
 #[allow(unused_field, unused_variable,unused_type_parameter, unused_mut_parameter)]
-/// Module for managing a position
+/// Config Module
+/// The config module stores the protocol configs and exposes methods for admin to update the config
+/// and getter methods to retrive config values
 module bluefin_spot::config {
     use sui::object::{UID};
     use integer_mate::i32::{I32};
@@ -14,12 +16,15 @@ module bluefin_spot::config {
     /// The protocol's config
     struct GlobalConfig has key, store {
         id: UID,
+        /// min tick supported
         min_tick: I32,
+        /// max tick supported
         max_tick: I32,
+        /// the current pkg version supported
         version: u64,
+        /// Accounts that are whitelisted to update rewards on any pool
         reward_managers: vector<address>
     }
-
 
 
     //===========================================================//
@@ -36,7 +41,7 @@ module bluefin_spot::config {
         abort 0
     }
 
-    /// checks if the given address is the whitelisted rewards manager
+    /// Checks if the given address is the whitelisted rewards manager
     public fun verify_reward_manager(config: &GlobalConfig, manager: address) : bool {
        abort 0
     }

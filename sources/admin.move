@@ -1,7 +1,9 @@
 // Copyright (c) Seed Labs
 
 #[allow(unused_field, unused_variable,unused_type_parameter, unused_mut_parameter)]
-/// Module for managing a position
+/// Admin Module
+/// The module exposes methods for priviliged users like the pool 
+/// manager/creator, rewards manager and oher priviliged operators
 module bluefin_spot::admin {
     use sui::tx_context::{TxContext};
     use std::string::{String};
@@ -11,16 +13,19 @@ module bluefin_spot::admin {
     use bluefin_spot::pool::{Pool};
 
 
-    /// initializes a reward for a given pool
+    /// Initializes a reward for a given pool. The caller must either be the manger (creator)
+    /// of the pool or a whitelisted rewards manager by admin
     /// Parameters:
-    /// - protocol_config: glocal config object for spot protocol
-    /// - pool : pool object
-    /// - start_time: start time for the rewards that are to be initilized (must be in future)
-    /// - active_for_seconds: seconds for which rewards are to be allocated.
-    /// - reward_coin: coin Object with balance for the reward that is to be initialized
-    /// - blue_reward_amount: amount of blue rewards (should be 0 in case the reward to be initialized is not Blue Coin)
-    /// - clock : sui clock object
+    /// - protocol_config     : glocal config object for spot protocol
+    /// - pool                : pool object
+    /// - start_time          : start time for the rewards that are to be initilized (must be in future)
+    /// - active_for_seconds  : seconds for which rewards are to be allocated.
+    /// - reward_coin         : coin Object with balance for the reward that is to be initialized
+    /// - blue_reward_amount  : amount of blue rewards (should be 0 in case the reward to be initialized is not Blue Coin)
+    /// - clock               : sui clock object
+    /// - ctx                 : Murable reference to caller's transaction context
     /// 
+    /// Events Emitted        : UpdatePoolRewardEmissionEvent
     public entry fun initialize_pool_reward<CoinTypeA, CoinTypeB, RewardCoinType>(
             protocol_config: &GlobalConfig,
             pool: &mut Pool<CoinTypeA, CoinTypeB>, 
@@ -36,15 +41,18 @@ module bluefin_spot::admin {
             abort 0
         }
 
-    /// updates the emission for the initialized reward in pool
+    /// Initializes a reward for a given pool. The caller must either be the manger (creator)
+    /// of the pool or a whitelisted rewards manager by admin
     /// Parameters:
-    /// - protocol_config: glocal config object for spot protocol
-    /// - pool : pool object
-    /// - active_for_seconds: seconds for which rewards are to be allocated.
-    /// - reward_coin: coin Object with balance for the reward that is to be initialized
-    /// - blue_reward_amount: amount of blue rewards (should be 0 in case the reward to be initialized is not Blue Coin)
-    /// - clock : sui clock object
+    /// - protocol_config      : glocal config object for spot protocol
+    /// - pool                 : pool object
+    /// - active_for_seconds   : seconds for which rewards are to be allocated.
+    /// - reward_coin          : coin Object with balance for the reward that is to be initialized
+    /// - blue_reward_amount   : amount of blue rewards (should be 0 in case the reward to be initialized is not Blue Coin)
+    /// - clock                : sui clock object
+    /// - ctx                  : Murable reference to caller's transaction context
     /// 
+    ///  Events Emitted        : UpdatePoolRewardEmissionEvent
     public entry fun update_pool_reward_emission<CoinTypeA, CoinTypeB, RewardCoinType>(
         protocol_config: &GlobalConfig,
         pool: &mut  Pool<CoinTypeA, CoinTypeB>, 
@@ -57,13 +65,16 @@ module bluefin_spot::admin {
         abort 0
     }
     
-    /// adds additional seconds to the emission for the initialized reward in pool
+    /// Initializes a reward for a given pool. The caller must either be the manger (creator)
+    /// of the pool or a whitelisted rewards manager by admin
     /// Parameters:
-    /// - protocol_config: glocal config object for spot protocol
-    /// - pool : pool object
-    /// - seconds_to_add: seconds to increase for reward emission.
-    /// - clock : sui clock object
+    /// - protocol_config   : glocal config object for spot protocol
+    /// - pool              : pool object
+    /// - seconds_to_add    : seconds to increase for reward emission.
+    /// - clock             : sui clock object
+    /// - ctx               : Murable reference to caller's transaction context
     /// 
+    /// Events Emitted      : UpdatePoolRewardEmissionEvent
     public fun add_seconds_to_reward_emission<CoinTypeA, CoinTypeB, RewardCoinType>(
         protocol_config: &GlobalConfig,
         pool: &mut Pool<CoinTypeA, CoinTypeB>, 

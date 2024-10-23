@@ -2,10 +2,13 @@
 
 #[allow(unused_field, unused_variable,unused_type_parameter, unused_mut_parameter)]
 /// Constants Module
+/// Exposes public methods to get constant values used across the protocol
 module bluefin_spot::constants {
      use std::string::{String};
 
-    /// Default protocol fee share of total fee rate
+    /// Default (25%) protocol fee share of total fee rate
+    /// The protocol fee is in 1e6 base
+    /// The admin of the protcool can choose to reduce protocol fee rate for a specific pool
     const PROTOCOL_FEE_SHARE: u64 = 250000;
     
     const Q64: u128 = 18446744073709551616;
