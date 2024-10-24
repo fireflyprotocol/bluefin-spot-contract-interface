@@ -102,7 +102,7 @@ module bluefin_spot::pool {
         amount_specified_remaining: u64,
         /// The amount of input/output calculated 
         amount_calculated: u64,
-        /// The fee growt global of Coin A or B depending on direciton of swap
+        /// The fee growth global of Coin A or B depending on the direciton of swap
         fee_growth_global: u128,
         /// The amount of fee paid as result of the swap
         fee_amount: u64,
