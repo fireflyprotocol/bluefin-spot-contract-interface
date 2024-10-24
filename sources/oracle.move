@@ -12,7 +12,7 @@ module bluefin_spot::oracle {
     //===========================================================//
 
     /// Observation Manager to keep track of all available
-    /// observsations and the current/next cardinatliy
+    /// observations and the current/next cardinality
     struct ObservationManager has copy, drop, store {
         observations: vector<Observation>,
         observation_index: u64,  
