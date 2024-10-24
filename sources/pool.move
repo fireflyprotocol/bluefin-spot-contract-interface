@@ -122,7 +122,7 @@ module bluefin_spot::pool {
         liquidity: u128,
         /// The number of steps (ticks hopped) during swap calculations
         steps: u64,
-        //// The result calcualted at each swap step
+        //// The result calculated at each swap step
         step_results: vector<SwapStepResult>,
     }
 
