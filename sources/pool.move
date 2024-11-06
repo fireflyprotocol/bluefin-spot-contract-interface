@@ -431,7 +431,7 @@ module bluefin_spot::pool {
         clock: &Clock,
         protocol_config: &GlobalConfig,
         pool: &mut Pool<CoinTypeA, CoinTypeB>,
-        position: Position): (Balance<CoinTypeA>, Balance<CoinTypeB>){
+        position: Position){
         abort 0
     }    
 
