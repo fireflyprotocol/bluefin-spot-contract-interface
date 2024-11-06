@@ -482,12 +482,7 @@ module bluefin_spot::pool {
 
     /// Returns the amount to be paid for the flash swap
     public fun swap_pay_amount<CoinTypeA, CoinTypeB>(receipt: &FlashSwapReceipt<CoinTypeA, CoinTypeB>) : u64 {
-        receipt.pay_amount
-    }
-
-    /// Returns the amount to be paid for the flash swap
-    public fun swap_pay_amount<CoinTypeA, CoinTypeB>(receipt: &FlashSwapReceipt<CoinTypeA, CoinTypeB>) : u64 {
-        receipt.pay_amount
+        abort 0
     }
 
     /// Returns the address of current pool' manager
@@ -520,17 +515,13 @@ module bluefin_spot::pool {
     }
 
     /// Returns the current tick index of the pool
-    public fun current_tick_index<CoinTypeA, CoinTypeB>(
-        pool: &Pool<CoinTypeA, CoinTypeB>
-    ): I32 {
+    public fun current_tick_index<CoinTypeA, CoinTypeB>( pool: &Pool<CoinTypeA, CoinTypeB>): I32 {
         abort 0
     }
 
     /// Returns the current sequence number of the pool
-    public fun sequence_number<CoinTypeA, CoinTypeB>(
-        pool: &Pool<CoinTypeA, CoinTypeB>
-    ): u128 {
-        abort
+    public fun sequence_number<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): u128 {
+        abort 0
     }
 
     /// Verifies if the given address is pool manager or not
@@ -557,7 +548,7 @@ module bluefin_spot::pool {
     /// the method will return true even after reward emission has finished until the admin removes the reward
     /// info from the pool
     public fun is_reward_present<CoinTypeA, CoinTypeB, RewardCoinType>(pool: &Pool<CoinTypeA, CoinTypeB>): bool {        
-        let exist = false;        
+        abort 0  
     }
    
 
