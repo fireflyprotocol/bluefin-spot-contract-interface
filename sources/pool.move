@@ -636,6 +636,16 @@ module bluefin_spot::pool {
     public fun fetch_provided_ticks<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>, ticks:vector<u32>): vector<TickInfo>{
         abort 0
     }
+
+    /// Returns pool fee rate
+    public fun get_fee_rate<CoinTypeA,CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): u64 {
+        abort 0
+    }
+
+    /// Returns pool tick spacing
+    public fun get_tick_spacing<CoinTypeA,CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): u32 {
+        abort 0
+    }
    
 
 }
