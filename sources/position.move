@@ -1,6 +1,6 @@
 // Copyright (c) Seed Labs
 
-#[allow(unused_field, unused_variable,unused_type_parameter, unused_mut_parameter)]
+#[allow(unused_field, unused_variable,unused_type_parameter, unused_mut_parameter, unused_use)]
 /// Positions Module
 /// Module for managing positions on bluefin spot. A user is required to first open a position
 /// on bluefin spot's pools before being able to provide liquidity. 
@@ -9,12 +9,13 @@ module bluefin_spot::position {
     use sui::object::{ UID, ID};
     use std::string::{ String};
     use integer_mate::i32::{I32};
+    use sui::tx_context::{TxContext};
 
     //===========================================================//
     //                          Structs                          //
     //===========================================================//
 
-    /// Bluefrin Spot position struct
+    /// Bluefin Spot position struct
     struct Position has key, store {
         id: UID,
         pool_id: ID,
@@ -73,6 +74,26 @@ module bluefin_spot::position {
     }
 
     public fun is_empty(position: &Position) : bool {
+        abort 0
+    }
+
+    #[test_only]
+    public fun open(
+        pool_id: ID, 
+        pool_name: String,
+        image_url: String,
+        coin_type_a: String, 
+        coin_type_b: String,
+        position_index: u128,
+        lower_tick: I32, 
+        upper_tick: I32, 
+        fee_rate: u64, 
+        ctx: &mut TxContext): Position {
+            abort 0
+    }
+
+    #[test_only]
+    public fun close(position: Position) {
         abort 0
     }
 }

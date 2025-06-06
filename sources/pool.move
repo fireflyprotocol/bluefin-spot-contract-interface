@@ -747,4 +747,49 @@ module bluefin_spot::pool {
     }
 
 
+    #[test_only]
+    public fun create_test_pool_without_liquidity<CoinTypeA, CoinTypeB, CoinTypeFee>(
+        clock: &Clock,
+        protocol_config: &mut GlobalConfig,
+        pool_name: vector<u8>, 
+        icon_url: vector<u8>,
+        coin_a_symbol: vector<u8>, 
+        coin_a_decimals: u8, 
+        coin_a_url: vector<u8>, 
+        coin_b_symbol: vector<u8>, 
+        coin_b_decimals: u8, 
+        coin_b_url: vector<u8>, 
+        tick_spacing: u32,
+        fee_rate: u64,
+        current_sqrt_price: u128,
+        creation_fee: Balance<CoinTypeFee>,
+        ctx: &mut TxContext): Pool<CoinTypeA, CoinTypeB> {
+            abort 0
+        }
+    
+     #[test_only]
+    public fun create_test_pool_with_liquidity<CoinTypeA, CoinTypeB, CoinTypeFee>(
+        clock: &Clock,
+        protocol_config: &mut GlobalConfig,
+        pool_name: vector<u8>, 
+        icon_url: vector<u8>,
+        coin_a_symbol: vector<u8>, 
+        coin_a_decimals: u8, 
+        coin_a_url: vector<u8>, 
+        coin_b_symbol: vector<u8>, 
+        coin_b_decimals: u8, 
+        coin_b_url: vector<u8>, 
+        tick_spacing: u32,
+        fee_rate: u64,
+        current_sqrt_price: u128,
+        creation_fee: Balance<CoinTypeFee>,
+        lower_tick_bits: u32, 
+        upper_tick_bits: u32, 
+        balance_a: Balance<CoinTypeA>,
+        balance_b: Balance<CoinTypeB>,
+        amount: u64,
+        is_fixed_a: bool,
+        ctx: &mut TxContext): (Pool<CoinTypeA, CoinTypeB>, Position,  u64, u64, Balance<CoinTypeA>, Balance<CoinTypeB>) {
+            abort 0
+        }
 }
