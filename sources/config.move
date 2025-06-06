@@ -32,22 +32,37 @@ module bluefin_spot::config {
     //                      Public Methods                       //
     //===========================================================//
 
-    /// Returns the min/max tick allowed
+    /// Returns the min/max tick allowed to be set on a pool
+    /// Parameters:
+    /// - config: reference to the global config object
+    /// Returns:
+    /// - (min_tick, max_tick)
     public fun get_tick_range(config: &GlobalConfig): (I32, I32){
         abort 0
     }
 
-    /// Assets if the config version matches the protocol version
+    /// Asserts if the config version matches the protocol version
+    /// Parameters:
+    /// - config: reference to the global config object
     public fun verify_version(config: &GlobalConfig) {
         abort 0
     }
 
     /// Checks if the given address is the whitelisted rewards manager
+    /// Parameters:
+    /// - config: reference to the global config object
+    /// - manager: address to check if it is a whitelisted rewards manager
+    /// Returns:
+    /// - true if the address is a whitelisted rewards manager, false otherwise
     public fun verify_reward_manager(config: &GlobalConfig, manager: address) : bool {
        abort 0
     }
 
-    /// Checks if the provided coin type is supported for pool creation and returns the fee amount
+    /// Checks if the provided coin type is supported for pool creation fee paymentand returns the fee amount
+    /// Parameters:
+    /// - protocol_config: reference to the global config object
+    /// Returns:
+    /// - (bool, u64) - (true, fee_amount) if the coin type is supported, (false, 0) otherwise
     public fun get_pool_creation_fee_amount<CoinTypeFee>(protocol_config: &GlobalConfig): (bool, u64) {
         abort 0
     }
