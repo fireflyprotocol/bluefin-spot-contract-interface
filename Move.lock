@@ -2,7 +2,7 @@
 
 [move]
 version = 3
-manifest_digest = "B2D70F227A3E71759AD1CC853656DFA7D274ACD1BE490142EE435AC70E581D3E"
+manifest_digest = "E7A77F0855B92341456AC928A3F8333F199393A62A28E6BB9D7B12FBECED162D"
 deps_digest = "060AD7E57DFB13104F21BE5F5C3759D03F0553FC3229247D9A7A6B45F50D03A3"
 dependencies = [
   { id = "IntegerLibrary", name = "IntegerLibrary" },
@@ -39,6 +39,6 @@ dependencies = [
 ]
 
 [move.toolchain-version]
-compiler-version = "1.49.1"
+compiler-version = "1.55.0"
 edition = "2024"
 flavor = "sui"
