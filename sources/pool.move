@@ -980,6 +980,15 @@ module bluefin_spot::pool {
         ctx: &mut TxContext): Pool<CoinTypeA, CoinTypeB> {
             abort 0
         }
+
+    /// Returns the name of the pool
+    /// Parameters:
+    /// - pool: reference to the pool
+    /// Returns:
+    /// - The name of the pool
+    public fun get_pool_name<CoinTypeA, CoinTypeB>(pool: &Pool<CoinTypeA, CoinTypeB>): String {
+        abort 0
+    }
     
      #[test_only]
     public fun create_test_pool_with_liquidity<CoinTypeA, CoinTypeB, CoinTypeFee>(
