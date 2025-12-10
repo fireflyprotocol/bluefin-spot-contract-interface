@@ -112,6 +112,15 @@ module bluefin_spot::position {
         abort 0
     }
 
+    /// Returns the length of the reward infos vector
+    /// Parameters:
+    /// - position: reference to the position
+    /// Returns:
+    /// - The length of the reward infos vector
+    public fun reward_infos_length(position: &Position) : u64 {
+         abort 0
+    }
+
     #[test_only]
     public fun open(
         pool_id: ID, 
